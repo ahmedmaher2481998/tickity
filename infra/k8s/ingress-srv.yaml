@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+  labels:
+    name: ingress-service
+
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: tickity.dev
+      http:
+        paths:
+          - path: "/api/users/?(.*)"
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: auth-srv
+                port:
+                  number: 3000
