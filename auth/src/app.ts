@@ -13,5 +13,5 @@ app.get('/api/users/currentUser', (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`Running on port http://localhost:${PORT} !!!`);
+    console.log(`Running on port http://localhost:${PORT} !`);
 })
