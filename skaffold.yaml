@@ -1,17 +1,19 @@
 apiVersion: skaffold/v2alpha3
 kind: Config
 deploy:
-  kubeContext: minikube
   kubectl:
     manifests:
       - ./infra/k8s/*
 
 build:
-  local:
-    push: false
+  # local:
+  #   push: false
+  googleCloudBuild:
+    projectId: tickity-405120
+
   artifacts:
     - context: auth
-      image: ahmedmaher2481998/auth
+      image: us.gcr.io/tickity-405120/auth
       docker:
         dockerfile: Dockerfile
       sync:

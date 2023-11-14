@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: ahmedmaher2481998/auth
+          image: us.gcr.io/tickity-405120/auth
           ports:
             - containerPort: 3000
 ---
