@@ -1,25 +1,9 @@
-<!-- Section 6 normalize Response  -->
-
-5.  - the express validator is sending an error that's not stander
-    - we need to normalize the error response
-    - the react should expect a fixed error shape
-    - we have to normalize the response to a fixed shape from all the services
-6.  - currently only taking about validation errors , but we will handle all errors the same way
-    - other logical errors too ,there's a lot of error layers validation level ,app level ,DB level
-7.  - now we need to use the error object to transfer more error info to the middleware
-    - we will ad a reasons property to the Error class to satisfy TS-server/complier
-    - we can extended or so and the format the error in middleware
-8.  -
-
-    - make a seralize Errors methon and add status code propperty to the error classes
-    - make a new abstract class custom error class and use it in instence of check in the error middleware
-    - add not found error , rethink the app artechture
-    -
-    -
-
-9.  -
-    -
-    -
-    -
-    -
-    -
+- make a mongo_auth_depl to create a mongo instance and a service to talk to it
+- make sure to connect to it via the auth service , test ur connection with the database
+- the postgres://auth-pg-srv:8080/dbName ? the db link , connect to Db
+- make a model for the user
+- the sign in flow , check if user email exists if yes error that ,if no hash the password and store the hashed password and the plain email in the user model , i will add a first ,last name for the user model
+- there's two main issues with mongoose and ts mongoose doesn't reveal to ts server what are the attr that's on the model we need a way to make sure tat any typo's error will be discovered by ts ,so we make an interface and add all the model attributes to it and then attach it to the model using statics.build and so on ,we also make a new interface to tell ts that the build method is available in the user model instance , we also add 3 any's on in the return of build,in the model generic ,in the modelSchema generic second argument
+- model <take type of the returned document,type of the used model>
+- after saving the user data , response with access token,and refresh token
+-
