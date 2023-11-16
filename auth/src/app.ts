@@ -1,6 +1,8 @@
 import express, { json } from 'express';
+import 'express-async-errors'
 import { authRouter } from './routes';
 import { errorHandler } from './middlewares/error-middleware';
+import { NotFoundError } from './errors';
 
 const app = express();
 const PORT = 3000;
@@ -22,13 +24,9 @@ app.use(json())
 
 app.use(authRouter)
 
-app.use('/', (req, res) => {
-    res.send('Welcome to the Auth service ')
-}
-)
 
-
-
+// 404 handler 
+app.all('*', async () => { throw new NotFoundError() })
 
 app.use(errorHandler)
 app.listen(PORT, () => {

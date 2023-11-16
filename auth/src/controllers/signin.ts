@@ -1,15 +1,16 @@
 import { Request, Response, NextFunction } from 'express'
 import { validationResult } from 'express-validator'
+import { RequestValidationError, DatabaseError } from '../errors'
 export function signinController(req: Request, res: Response, next: NextFunction) {
     const validationErrors = validationResult(req)
 
     if (!validationErrors.isEmpty()) {
-        throw new Error('invalid email or password ')
+        next(new RequestValidationError(validationErrors.array()))
     } else {
-        next(new Error('database error connecting'))
+        next(new DatabaseError())
     }
 
 
-    res.end('good request')
+    res.end('signin user ')
 
 }

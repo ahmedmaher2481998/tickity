@@ -1,11 +1,4 @@
-import { currentUserController } from './currentUser'
-import { signinController } from './signin'
-import { signupController } from './signup'
-import { logoutController } from './logout'
-export {
-    currentUserController,
-    signinController,
-    signupController,
-    logoutController
-
-}
+export * from './currentUser'
+export * from './signin'
+export * from './signup'
+export * from './logout'

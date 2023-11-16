@@ -10,30 +10,14 @@
     - we will ad a reasons property to the Error class to satisfy TS-server/complier
     - we can extended or so and the format the error in middleware
 8.  -
+
+    - make a seralize Errors methon and add status code propperty to the error classes
+    - make a new abstract class custom error class and use it in instence of check in the error middleware
+    - add not found error , rethink the app artechture
     -
     -
-    -
-    -
-    -
+
 9.  -
-    -
-    -
-    -
-    -
-    -
-10. -
-    -
-    -
-    -
-    -
-    -
-11. -
-    -
-    -
-    -
-    -
-    -
-12. -
     -
     -
     -

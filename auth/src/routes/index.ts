@@ -13,8 +13,11 @@ const router = Router()
 
 
 router.get(authRoutes.currentUserRoute.url, currentUserController)
+
 router.post(signinRoute.url, signinRoute.validation, signinRoute.controller)
+
 router.post(authRoutes.signupRoute, signupController)
+
 router.post(authRoutes.logoutRoute, logoutController)
 
 
